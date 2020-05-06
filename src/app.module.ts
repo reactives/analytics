@@ -9,7 +9,7 @@ import { UsersModule } from './users/users.module';
   imports: [
     AuthModule, 
     UsersModule,
-    MongooseModule.forRoot('mongodb://localhost/authexample')
+    MongooseModule.forRoot('mongodb://localhost/analytics')
   ],
   controllers: [AppController],
   providers: [AppService],
