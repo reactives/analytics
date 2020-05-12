@@ -48,4 +48,4 @@ Thumbs.db
 .idea/
 /data/
 /data/mongo/journal/
-/frontend/node_modules/*
+/frontend1/node_modules/

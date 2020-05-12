@@ -1,0 +1,10 @@
+﻿<div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+<div class="card mt-4" *ngIf="!loading">
+  <h4 class="card-header">Configuration site: {{site.siteName}}</h4>
+  <div class="card-body">
+    <h6>host: {{site.host}}</h6>
+    <textarea disabled>
+      {{site._id}}
+    </textarea>
+  </div>
+</div>
