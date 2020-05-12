@@ -1,0 +1,22 @@
+﻿
+<div *ngIf="sites && sites.length === 0" class="gn">
+  <div class="alert alert-info">
+    please add you site
+  </div>
+</div>
+<br>
+<h6>add my site <a routerLink="/site-crete">add</a></h6>
+<br>
+<div *ngIf="sites" class="gn">
+  <div class="cards" *ngFor="let site of sites">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{site.siteName}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{site.host}}</h6>
+        <a [routerLink]="['/sites',site._id]" class="card-link">go to settings</a>
+        <a [routerLink]="['/site-analytics',site._id]" class="card-link">show analytics</a>
+        <button class="card-link" (click)="deleteSite(site._id)">delete</button>
+      </div>
+    </div>
+  </div>
+</div>
