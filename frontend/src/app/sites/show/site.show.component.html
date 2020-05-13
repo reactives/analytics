@@ -3,8 +3,10 @@
   <h4 class="card-header">Configuration site: {{site.siteName}}</h4>
   <div class="card-body">
     <h6>host: {{site.host}}</h6>
-    <textarea disabled>
-      {{site._id}}
+    <textarea disabled rows="10" cols="50">
+      <!-- append to head -->
+      <script async src="http://localhost:3000/stats.js"></script>
+      <script>window.statsLayer = window.statsLayer || '{{site._id}}';</script>
     </textarea>
   </div>
 </div>
