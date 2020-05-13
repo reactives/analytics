@@ -106,14 +106,12 @@ export class AnalyticsComponent implements OnInit {
       console.log(stats);
       const users = [];
       for (let i = 0; i < stats.length; i++) {
-        console.log(stats[i]);
-         this.lineChartLabels.push(stats[i]['date']);
-         users.push(1);
+         this.lineChartLabels.push(stats[i]['_id']['year'] + '-' + stats[i]['_id']['month'] + '-'+ stats[i]['_id']['day']);
+         users.push(stats[i]['users']);
       }
 
       this.lineChartData.push({ data: users, label: 'User visitors' });
       this.loading = true;
-      console.log(this.chart);
     //  this.chart.update();
     });
   }
