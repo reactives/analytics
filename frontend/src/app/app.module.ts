@@ -15,15 +15,21 @@ import { SitesCreateComponent } from '@app/sites/create/sites.create.component';
 import { ShowSiteComponent } from '@app/sites/show/site.show.component';
 import { AnalyticsComponent } from '@app/analytics/analytics.component';
 import { ChartsModule } from 'ng2-charts';
+import { PieComponent } from './pie/pie.component';
+import { UserPieComponent } from './user-pie/user-pie.component';
+import { NavComponent } from './nav/nav.component';
+import { UserDevicesComponent } from './user-devices/user-devices.component';
+
 
 @NgModule({
-    imports: [
-        BrowserModule,
-        ChartsModule,
-        ReactiveFormsModule,
-        HttpClientModule,
-        appRoutingModule
-    ],
+  imports: [
+    BrowserModule,
+    ChartsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    appRoutingModule,
+
+  ],
     declarations: [
         AppComponent,
         HomeComponent,
@@ -32,7 +38,11 @@ import { ChartsModule } from 'ng2-charts';
         ShowSiteComponent,
         RegisterComponent,
         AnalyticsComponent,
-        LoginComponent
+        LoginComponent,
+        PieComponent,
+        UserPieComponent,
+        NavComponent,
+        UserDevicesComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

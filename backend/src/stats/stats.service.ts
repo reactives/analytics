@@ -61,4 +61,35 @@ export class StatsService {
 
         return res;
     }
+
+    async getPieUsers(siteId: string) {
+        const all = await this.statsModel.aggregate([
+            { $match: {
+                    'trackingId': new ObjectId(siteId),
+                }
+            },{
+                $group: {
+                    _id: null,
+                    count: { $sum: 1 }
+                }
+            }
+        ]);
+
+        const unique = await this.statsModel.aggregate([
+            { $match: {
+                    'trackingId': new ObjectId(siteId),
+                }
+            },{
+                $group: {
+                    _id: 'clientId',
+                    count: { $sum: 1 }
+                }
+            }
+        ]);
+
+        return {
+            all: all,
+            unique: unique
+        }
+    }
 }

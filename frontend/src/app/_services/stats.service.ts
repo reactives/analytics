@@ -10,4 +10,7 @@ export class StatsService {
   getStatsUser(siteId: string) {
     return this.http.get(`${environment.apiUrl}/api/${siteId}/users`);
   }
+  getPieUsers(siteId: string) {
+    return this.http.get(`${environment.apiUrl}/api/${siteId}/users-pie`);
+  }
 }

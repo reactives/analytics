@@ -92,4 +92,14 @@ export class StatsController {
 
     return await this.statsService.getUsersByTime(siteId, new Date(), dataEnd);
   }
+  @Get(':siteId/users-pie')
+  @UseGuards(AuthGuard())
+  async getUsersByPie(@Request() req, @Param('siteId', new ValidateObjectId()) siteId) {
+    const site = await this.sitesService.getIdByUser(req.user._id, siteId);
+    if (!site) {
+      throw new NotFoundException('site does not exist!');
+    }
+
+    return await this.statsService.getPieUsers(siteId);
+  }
 }
